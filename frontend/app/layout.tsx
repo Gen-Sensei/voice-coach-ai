@@ -15,6 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <a href="/" className="text-xl font-bold text-indigo-600">Voice Coach AI</a>
             <nav className="flex gap-4 text-sm">
               <a href="/analyze" className="text-gray-600 hover:text-indigo-600">分析する</a>
+              <a href="/practice" className="text-gray-600 hover:text-indigo-600">練習</a>
               <a href="/history" className="text-gray-600 hover:text-indigo-600">履歴</a>
             </nav>
           </div>

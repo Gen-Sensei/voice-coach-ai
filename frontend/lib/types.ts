@@ -41,11 +41,16 @@ export interface Scores {
   recording_quality: number
 }
 
+export interface TrainingItem {
+  key: string
+  label: string
+}
+
 export interface Comments {
   summary: string
   strengths: string[]
   improvements: string[]
-  next_training: string[]
+  next_training: TrainingItem[]
 }
 
 export interface AnalysisResult {

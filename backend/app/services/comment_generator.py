@@ -8,7 +8,7 @@ def generate_comments(metrics: dict, scores: dict) -> dict:
         strengths.append("声量が比較的安定しています")
     elif scores["volume_stability"] < 70:
         improvements.append("文末まで声を届けるよう意識しましょう")
-        next_training.append("文末まで声量を保つ練習")
+        next_training.append({"key": "volume", "label": "文末まで声量を保つ練習"})
 
     # Intonation
     pitch_range = metrics["pitch"].get("range_hz")
@@ -16,10 +16,10 @@ def generate_comments(metrics: dict, scores: dict) -> dict:
         strengths.append("声の抑揚が自然についています")
     elif pitch_range is not None and pitch_range < 50:
         improvements.append("重要な単語の前後で声の高さを少し変えると、聞き手に伝わりやすくなります")
-        next_training.append("重要語を少し強調して読む練習")
+        next_training.append({"key": "intonation", "label": "重要語を少し強調して読む練習"})
     elif pitch_range is not None and pitch_range > 250:
         improvements.append("声の高さの変化が大きすぎる可能性があります。落ち着いたトーンを意識してみましょう")
-        next_training.append("一定のトーンで安定して話す練習")
+        next_training.append({"key": "tone", "label": "一定のトーンで安定して話す練習"})
 
     # Pause
     if scores["pause"] >= 80:
@@ -29,10 +29,10 @@ def generate_comments(metrics: dict, scores: dict) -> dict:
         max_silence = metrics["silence"].get("max_sec", 0)
         if avg_silence < 0.25:
             improvements.append("文と文の間をもう少し取ると聞き取りやすくなります")
-            next_training.append("句点ごとに0.5秒止まる練習")
+            next_training.append({"key": "pause", "label": "句点ごとに0.5秒止まる練習"})
         elif max_silence > 3.0:
             improvements.append("長すぎる沈黙があります。適度な間を意識しましょう")
-            next_training.append("一定のリズムで話す練習")
+            next_training.append({"key": "rhythm", "label": "一定のリズムで話す練習"})
 
     # Recording quality
     if scores["recording_quality"] >= 80:
@@ -54,7 +54,7 @@ def generate_comments(metrics: dict, scores: dict) -> dict:
     if not improvements:
         improvements.append("この調子で練習を続けてください")
     if not next_training:
-        next_training.append("録音を繰り返して変化を確認しましょう")
+        next_training.append({"key": "general", "label": "録音を繰り返して変化を確認しましょう"})
 
     return {
         "summary": summary,

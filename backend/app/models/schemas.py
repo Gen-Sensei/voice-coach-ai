@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional, List
+from typing import Optional, List, Any
 from datetime import datetime
 
 class PitchMetrics(BaseModel):
@@ -39,11 +39,15 @@ class Scores(BaseModel):
     volume_stability: int
     recording_quality: int
 
+class TrainingItem(BaseModel):
+    key: str
+    label: str
+
 class Comments(BaseModel):
     summary: str
     strengths: List[str]
     improvements: List[str]
-    next_training: List[str]
+    next_training: List[TrainingItem]
 
 class AnalysisResult(BaseModel):
     analysis_id: str
