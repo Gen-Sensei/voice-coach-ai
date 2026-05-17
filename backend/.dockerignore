@@ -1,0 +1,8 @@
+__pycache__
+*.pyc
+*.pyo
+.env
+venv
+.venv
+voice_coach.db
+app/storage/uploads/*

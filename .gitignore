@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+*.db
+backend/app/storage/uploads/*
+!backend/app/storage/uploads/.gitkeep
+
+# Node
+node_modules/
+.next/
+.env.local
+.env
+
+# OS
+.DS_Store
