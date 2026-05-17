@@ -2,9 +2,10 @@ services:
   - type: web
     name: voice-coach-ai-backend
     runtime: docker
-    dockerfilePath: ./backend/Dockerfile
-    dockerContext: ./backend
-    plan: free
+    dockerfilePath: backend/Dockerfile
+    dockerContext: backend
     envVars:
       - key: ALLOWED_ORIGINS
         value: https://voice-coach-ai.vercel.app
+      - key: PORT
+        value: 8000
