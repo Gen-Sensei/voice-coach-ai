@@ -6,6 +6,6 @@ services:
     dockerContext: backend
     envVars:
       - key: ALLOWED_ORIGINS
-        value: https://voice-coach-ai.vercel.app
+        value: https://frontend-five-murex-29.vercel.app,https://frontend-9z7wc1rl7-takahilo-6668s-projects.vercel.app
       - key: PORT
         value: 8000
